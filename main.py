@@ -17,9 +17,9 @@ torch.backends.cudnn.benchmark = True
 if not torch.cuda.is_available():
     raise Exception('NO GPU!')
 
-data_path = "../Data/training_data/"  
-mask_path = "../Data/mask/mask_3d_shift.mat"
-test_path = "../Data/testing_data/" 
+data_path = "./Data/training_data/"  
+mask_path = "./Data/mask/mask_3d_shift.mat"
+test_path = "./Data/testing_data/" 
 
 batch_size = 5
 nC, H, W = 28, 256, 256

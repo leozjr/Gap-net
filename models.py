@@ -1,3 +1,10 @@
+'''
+Author: LEO_zjr
+Date: 2022-08-24 15:48:16
+LastEditors: LEO_zjr
+LastEditTime: 2022-08-24 18:16:34
+FilePath: /Gap-net/models.py
+'''
 import torch.nn.functional as F
 from my_tools import *
 from utils import A, At
@@ -60,7 +67,7 @@ class GAP_net(nn.Module):
         x = shift_back(x)
         x = self.unet7(x)
         x = shift(x)
-        x_list.append(x[:,:,:,0:256])
+        x_list.append(x[:,:,:,0:256]) #NOTE：为什么要在7-9层这样操作
         yb = A(x,Phi)
         x = x + At(torch.div(y-yb,Phi_s),Phi)
         x = shift_back(x)
